@@ -1,5 +1,11 @@
-class StatusController < BaseApiController
+class StatusController < ApplicationController
    skip_before_filter :verify_authenticity_token
+   before_filter :parse_request, :only => :create
+
+  # GET /status.json
+  def index
+    render json:Status.all
+  end
 
   # POST /status.json
   def create
@@ -11,4 +17,9 @@ class StatusController < BaseApiController
       render nothing: true, status: :bad_request
     end
    end
-end
+
+   private
+      def parse_request
+        @json = JSON.parse(request.body.read)
+      end
+   end
