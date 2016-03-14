@@ -5,4 +5,5 @@ Rails.application.routes.draw do
    root to: 'home#new'
    post "/status" => "status#create"
    get "/status" => "status#new"
+   get "/points" => "points#new"
 end
