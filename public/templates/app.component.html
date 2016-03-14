@@ -1,0 +1,16 @@
+
+<h1>{{title}}</h1>
+
+<table class="table table-striped">
+<tr>
+  <td>Avatar</td>
+  <td>Username</td>
+  <td>Points</td>
+</tr>
+<tr *ngFor="#item of leaderboard">
+  <td><img style="border-radius: 50%; height:15%;" src="{{item.avatar_url}}" /> </td>
+  <td>{{item.user_name}}</td>
+  <td>{{item.points}}</td>
+</tr>
+</table>
+<router-outlet></router-outlet>
