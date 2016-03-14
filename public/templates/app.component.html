@@ -1,16 +1,51 @@
 
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <img src="/KOTC-Head.png" style="width:80px;height:80px; align-item: right;">
+    </div>
+    <div class="navbar-header">
+      <h2 href="#" style="padding-left: 30px; color:white;">King Of The Code</h2>
+    </div>
+  </div>
+</nav>
+
+<div style="margin-top:60px;" class=".container-fluid">
+<div class="row">
+
+<div class="col-md-3">
+</div>
+
+<div class="col-md-6" style="background-color: #FFF; padding:30px; border-radius: 15px;">
+<div >
 <h1>{{title}}</h1>
 
-<table class="table table-striped">
-<tr>
-  <td>Avatar</td>
-  <td>Username</td>
-  <td>Points</td>
-</tr>
-<tr *ngFor="#item of leaderboard">
-  <td><img style="border-radius: 50%; height:15%;" src="{{item.avatar_url}}" /> </td>
-  <td>{{item.user_name}}</td>
-  <td>{{item.points}}</td>
-</tr>
-</table>
-<router-outlet></router-outlet>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+      <th></th>
+      <th>Name</th>
+      <th id="score">Score</th>
+    </tr></thead>
+    <tbody>
+      <tr *ngFor="#item of leaderboard">
+        <td><img style="border-radius: 50%; height:12%;" src="{{item.avatar_url}}"></td>
+        <td>{{item.user_name}} <img src="/KOTC-Gold.png" style="width:50px;height:50px;float:right;"></td>
+        <td id="score"><p id="positive">{{item.points}}</p></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <router-outlet></router-outlet>
+</div>
+
+<div class="col-md-3">
+</div>
+
+
+
+
+</div>
+</div>
+</div>
