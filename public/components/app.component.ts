@@ -1,14 +1,14 @@
-
 import {Component, OnInit} from 'angular2/core';
 import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
 import {Leaderboard} from '/interfaces/leaderboard.ts';
 import {LeaderboardService} from '/services/leaderboard.service.ts';
+import {HTTP_PROVIDERS} from 'angular2/http';
 
 @Component({
   selector: 'my-app',
   templateUrl: '/templates/app.component.html',
   directives: [ROUTER_DIRECTIVES],
-  providers: [LeaderboardService]
+  providers: [LeaderboardService, HTTP_PROVIDERS]
 })
 
 export class AppComponent {
@@ -19,6 +19,9 @@ export class AppComponent {
   constructor(private _leaderboardService: LeaderboardService) { }
 
   ngOnInit() {
-    this._leaderboardService.getLeaderboards().then(leaderboard => this.leaderboard = leaderboard);
+    this._leaderboardService.getLeaderboards()
+                   .subscribe(
+                     leaderboard => this.leaderboard = leaderboard,
+                     error =>  this.errorMessage = <any>error);
   }
 }
