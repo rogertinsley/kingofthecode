@@ -5,6 +5,8 @@ class PointsController < ApplicationController
 
     Status.all.each do |status|
 
+    unless status.state.eql? "pending"
+
       if status.user_name?
 
         # User exists in @total_points hash, update the points
@@ -26,6 +28,8 @@ class PointsController < ApplicationController
             @total_points[status.user_name][:points] -= 10
           end
         end
+      end
+
       end
 
     end
