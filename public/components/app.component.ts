@@ -7,6 +7,7 @@ import {HTTP_PROVIDERS} from 'angular2/http';
 @Component({
   selector: 'my-app',
   templateUrl: '/templates/app.component.html',
+  stylesUrl : ['/styles/app.component.css']
   directives: [ROUTER_DIRECTIVES],
   providers: [LeaderboardService, HTTP_PROVIDERS]
 })
@@ -19,9 +20,7 @@ export class AppComponent {
   constructor(private _leaderboardService: LeaderboardService) { }
 
   ngOnInit() {
-    this._leaderboardService.getLeaderboards()
-                   .subscribe(
-                     leaderboard => this.leaderboard = leaderboard,
-                     error =>  this.errorMessage = <any>error);
+       this._leaderboardService.getLeaderboards().subscribe(leaderboard => this.leaderboard = leaderboard);
   }
+
 }

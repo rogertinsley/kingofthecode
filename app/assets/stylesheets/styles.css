@@ -1,11 +1,28 @@
-#score{
-  text-align: center;
+
+.positive {
+  padding-top: 23px;
+  background-color: #43A85B;
+  font-weight: bold;
+  font-size: 20px;
+  color: #FFF;
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
 }
 
-#positive{
-  color: green;
+.negative {
+  padding-top: 23px;
+  background-color: #ad3b3b;
+  font-weight: bold;
+  font-size: 20px;
+  color: #FFF;
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
 }
 
-#negative{
-  color: red;
+.leaderboard-username {
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: 23px;
 }
