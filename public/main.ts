@@ -7,6 +7,7 @@ import 'rxjs/Rx';
 import {enableProdMode} from 'angular2/core';
 
 enableProdMode();
+
 bootstrap(AppComponent, [
   ROUTER_PROVIDERS,
   LeaderboardService,

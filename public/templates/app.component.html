@@ -25,14 +25,29 @@
     <thead>
       <tr>
       <th></th>
-      <th>Name</th>
-      <th id="score">Score</th>
+      <th></th>
+      <th></th>
+      <th></th>
     </tr></thead>
     <tbody>
-      <tr *ngFor="#item of leaderboard">
-        <td><img style="border-radius: 50%; height:12%;" src="{{item.avatar_url}}"></td>
-        <td>{{item.user_name}} <img src="/KOTC-Gold.png" style="width:50px;height:50px;float:right;"></td>
-        <td id="score"><p id="positive">{{item.points}}</p></td>
+      <tr *ngFor="#item of leaderboard; #i=index">
+        <td>
+          <img style="border-radius: 50%; height:75px; wdth: 75px;" src="{{item.avatar_url}}">
+        </td>
+        <td><div class="leaderboard-username">{{item.user_name}} </div>
+
+        </td>
+        <td>
+          <img *ngIf="i==0" src="/KOTC-Gold.png" style="height:75px; wdth: 75px;">
+          <img *ngIf="i==1" src="/KOTC-Silver.png" style="height:75px; wdth: 75px;">
+          <img *ngIf="i==2" src="/KOTC-Bronze.png" style="height:75px; wdth: 75px;">
+        </td>
+        <td  id="score">
+          <div style="width: 50%; margin-left: 33%;">
+            <div [ngClass]="{'positive': item.points.toString().indexOf('-') == -1 , 'negative': item.points.toString().indexOf('-') > -1 } ">{{item.points}}</div>
+          </div>
+
+        </td>
       </tr>
     </tbody>
   </table>

@@ -16,9 +16,7 @@ export class LeaderboardService {
                 .catch(this.handleError);
   }
 
-	getLeaderboard(id: number) {
-    return Promise.resolve(LEADERBOARDS).then(
-      leaderboards => leaderboards.filter(leaderboard => leaderboard.id === id)[0]
-    );
+  getMockLeaderboards() {
+    return Promise.resolve(LEADERBOARDS);
   }
 }
